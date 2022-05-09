@@ -1,0 +1,19 @@
+DEPLOYMENT:
+    ENV: perftest
+    NAMESPACE: perftest
+    CONFIG_FILES:
+        - "config/auth-service.default.yaml"
+        - "config/auth-service.perftest.yaml"
+    INGRESS:
+      ENABLED: 'true'
+APP:
+    INGRESS:
+      ENABLED: 'true'
+      EXTERNAL_ENABLED: 'false'      
+    COMMAND: yarn
+    COMMAND_ARGS: start
+    ENVIRONMENT:
+      - KEY: ENV
+        VALUE: dev
+      - KEY: logs.Dir
+        VALUE: "/apps/logs/perftest/auth-service/"

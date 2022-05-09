@@ -1,0 +1,19 @@
+DEPLOYMENT:
+    ENV: test
+    NAMESPACE: test
+    CONFIG_FILES:
+        - "config/auth-service.default.yaml"
+        - "config/auth-service.test.yaml"
+    INGRESS:
+      ENABLED: 'true'
+APP:
+    INGRESS:
+      ENABLED: 'true'
+      EXTERNAL_ENABLED: 'false'      
+    COMMAND: yarn
+    COMMAND_ARGS: start
+    ENVIRONMENT:
+      - KEY: ENV
+        VALUE: test
+      - KEY: logs.Dir
+        VALUE: "/apps/logs/test/auth-service/"

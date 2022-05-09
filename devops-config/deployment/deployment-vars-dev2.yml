@@ -1,0 +1,19 @@
+DEPLOYMENT:
+    ENV: dev2
+    NAMESPACE: dev2
+    CONFIG_FILES:
+        - "config/auth-service.default.yaml"
+        - "config/auth-service.dev2.yaml"
+    INGRESS:
+      ENABLED: 'true'
+APP:
+    INGRESS:
+      ENABLED: 'true'
+      EXTERNAL_ENABLED: 'false'      
+    COMMAND: yarn
+    COMMAND_ARGS: start
+    ENVIRONMENT:
+      - KEY: ENV
+        VALUE: dev2
+      - KEY: logs.Dir
+        VALUE: "/apps/logs/dev2/auth-service/"

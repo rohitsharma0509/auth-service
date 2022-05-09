@@ -1,0 +1,2 @@
+MONGO_DB_NAME: authDb
+RIDER_PROFILE_SERVICE_PATH: http://rider-service.dev:8080

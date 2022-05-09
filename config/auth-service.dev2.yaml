@@ -1,0 +1,5 @@
+COGNITO_CLIENT_ID: 2pa18uglqjntoktu51kgbrg1mn
+COGNITO_REGION: ap-southeast-1
+COGNITO_USER_POOLID: ap-southeast-1_5Sn2G5ajz
+MONGO_DB_NAME: authDb
+RIDER_PROFILE_SERVICE_PATH: http://rider-service.dev2:8080

@@ -1,0 +1,41 @@
+DEPLOYMENT:
+    ENV: preprod
+    NAMESPACE: preprod
+    CONFIG_FILES:
+        - "config/auth-service.default.yaml"
+        - "config/auth-service.preprod.yaml"
+    INGRESS:
+      ENABLED: 'true'
+APP:
+    INGRESS:
+      ENABLED: 'true'
+      EXTERNAL_ENABLED: 'false'      
+    COMMAND: yarn
+    COMMAND_ARGS: start
+    ENVIRONMENT:
+      - KEY: ENV
+        VALUE: preprod
+      - KEY: logs.Dir
+        VALUE: "/apps/logs/preprod/auth-service/"
+    REPLICA: 3
+    CONTAINER:
+      MEMORY:
+        REQUEST: 1Gi
+        LIMIT: 1Gi
+      CPU:
+        REQUEST: 0.5
+        LIMIT: 0.5
+    LIVENESS_PROBE:
+      HTTP_GET_PATH: /
+      INITIAL_DELAY_SECONDS: 30
+      TIMEOUT_SECONDS: 10
+      FAILURE_THRESHOLD: 5
+      PERIOD_SECONDS: 60
+      SUCCESS_THRESHOLD: 1
+    READINESS_PROBE:
+      HTTP_GET_PATH: /
+      INITIAL_DELAY_SECONDS: 30
+      TIMEOUT_SECONDS: 10
+      FAILURE_THRESHOLD: 5
+      PERIOD_SECONDS: 60
+      SUCCESS_THRESHOLD: 1

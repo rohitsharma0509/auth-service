@@ -1,0 +1,4 @@
+COGNITO_CLIENT_ID: 38253mhvgt2ml1gsqj7ua91c18
+COGNITO_REGION: ap-southeast-1
+COGNITO_USER_POOLID: ap-southeast-1_p7DudENCg
+MONGO_DB_NAME: authDb

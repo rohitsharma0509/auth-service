@@ -1,0 +1,23 @@
+---
+# Source: environment/templates/devops-config/deployment/deployment-vars-{{env}}.yml
+# This file was generated at  using generator Version: 
+
+DEPLOYMENT:
+    ENV: ci
+    NAMESPACE: ci
+    CONFIG_FILES:
+        - "config/auth-service.default.yaml"
+        - "config/auth-service.ci.yaml"
+    INGRESS:
+      ENABLED: 'true'
+APP:
+    COMMAND: yarn    
+    COMMAND_ARGS: start
+    INGRESS:
+      ENABLED: 'true'
+      EXTERNAL_ENABLED: 'false'
+    ENVIRONMENT:
+      - KEY: ENV
+        VALUE: ci
+      - KEY: logs.Dir
+        VALUE: "/apps/logs/ci/auth-service/"

@@ -1,0 +1,19 @@
+DEPLOYMENT:
+    ENV: qa
+    NAMESPACE: qa
+    CONFIG_FILES:
+        - "config/auth-service.default.yaml"
+        - "config/auth-service.qa.yaml"
+    INGRESS:
+      ENABLED: 'true'
+APP:
+    INGRESS:
+      ENABLED: 'true'
+      EXTERNAL_ENABLED: 'false'      
+    COMMAND: yarn
+    COMMAND_ARGS: start
+    ENVIRONMENT:
+      - KEY: ENV
+        VALUE: qa
+      - KEY: logs.Dir
+        VALUE: "/apps/logs/qa/auth-service/"
